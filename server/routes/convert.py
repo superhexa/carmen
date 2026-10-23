@@ -202,7 +202,7 @@ async def convert_spotify_to_ytmusic(body: ConvertRequest):
 
         semaphore = asyncio.Semaphore(_SEARCH_CONCURRENCY)
         loop = asyncio.get_running_loop()
-        search_songs = partial(search, filter="songs", limit=8, ignore_spelling=True)
+        search_songs = partial(search, filter="songs", limit=15, ignore_spelling=True)
 
         async def convert_one(track: SpotifyTrack) -> matching.TrackMatch:
             async with semaphore:
