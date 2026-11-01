@@ -67,7 +67,7 @@ export const DEFAULT_FONT: FontId = 'alexandria';
  * that the Tailwind `@theme` tokens in `styles.css` read (one engine since
  * MUI left).  Editing a colour here restyles the whole app.
  *
- * Lumi look: the dark palette is near-black and flat (`#050505` ground,
+ * Dark look: the dark palette is near-black and flat (`#050505` ground,
  * `#0d0d0f` surfaces, hairline white dividers) with white text and grey
  * secondary text; the light palette is the same layout in readable light
  * tones. The accent picker still drives active states and focus — chrome
@@ -90,7 +90,7 @@ const PALETTE = {
   },
 } as const;
 
-/** Lumi chrome constants — the only yellow in the interface is the star. */
+/** Chrome constants — the only yellow in the interface is the star. */
 export const STAR_YELLOW = '#FACC15';
 
 /** Rank numeral colours for the ranked row (1 gold, 2 silver, 3 bronze). */

@@ -8,7 +8,7 @@ import { normalizeTrack } from '../utils/track';
 import { formatTime } from '../utils/format';
 import type { Track } from '../types/models';
 import Artwork from '../components/Artwork';
-import { LumiFooter, RowStrip, SectionHeader } from '../components/Lumi';
+import { AppFooter, RowStrip, SectionHeader } from '../components/Sections';
 import MediaCard from '../components/MediaCard';
 import type { MediaCardPlaySong } from '../components/MediaCard';
 import NPFavorite from '../components/NPFavorite';
@@ -22,7 +22,7 @@ const PULL_DISTANCE = 90;
 /** Hero auto-rotation interval. */
 const HERO_INTERVAL_MS = 6000;
 
-/** Max hero slides (Lumi's 7-up strip). */
+/** Max hero slides (7-up strip). */
 const HERO_LIMIT = 7;
 
 /**
@@ -63,7 +63,7 @@ function heroMeta(track: Track): ReactNode {
 }
 
 /**
- * Full-bleed hero carousel (Lumi): the artwork fills the viewport-height
+ * Full-bleed hero carousel: the artwork fills the viewport-height
  * section under a bottom+left scrim, content sits bottom-left, Play starts
  * playback, Details opens the song, the heart saves it, the 7-up thumbnail
  * strip jumps between slides and the dot pill paginates. Auto-rotation
@@ -115,7 +115,7 @@ function HeroCarousel({
     <section
       aria-label="Featured songs"
       className="relative h-[78svh] min-h-[540px] overflow-hidden md:h-[92svh]"
-      style={{ marginTop: 'calc(var(--lumi-header) * -1)' }}
+      style={{ marginTop: 'calc(var(--app-header) * -1)' }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocus={() => setPaused(true)}
@@ -138,7 +138,7 @@ function HeroCarousel({
           />
         </div>
       ))}
-      {/* Lumi scrims: dark at the bottom and the left, clear at the top. */}
+      {/* Hero scrims: dark at the bottom and the left, clear at the top. */}
       <div
         aria-hidden
         className="absolute inset-0"
@@ -150,7 +150,7 @@ function HeroCarousel({
 
       <div
         className="relative z-10 flex h-full flex-col justify-end px-4 pb-5 md:px-10"
-        style={{ paddingTop: 'var(--lumi-header)' }}
+        style={{ paddingTop: 'var(--app-header)' }}
       >
         <div className="max-w-[640px]">{heroMeta(track)}</div>
         <h1 className="m-0 mt-3 max-w-[640px] text-[34px] font-extrabold leading-[1.05] tracking-[-0.02em] text-white [text-wrap:balance] sm:text-5xl md:text-6xl">
@@ -503,7 +503,7 @@ export default function HomePage() {
         )}
       </div>
 
-      <LumiFooter />
+      <AppFooter />
     </div>
   );
 }

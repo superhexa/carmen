@@ -44,7 +44,7 @@
   --radius-tile: 16px;
   --shadow-glass: 0 8px 24px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.2);
 
-  /* Lumi chrome: the only yellow is the star glyph colour; rank numerals
+  /* Chrome: the only yellow is the star glyph colour; rank numerals
      are gold / silver / bronze, everything else stays monochrome. */
   --color-star: #facc15;
   --color-rank-gold: #facc15;
@@ -194,12 +194,12 @@
 
   /* Horizontal peek row: snap + momentum scrolling, scrollbar hidden by
      the global rule in @layer base. */
-  .lumi-row {
+  .peek-row {
     scroll-snap-type: x proximity;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior-x: contain;
   }
-  .lumi-row > * {
+  .peek-row > * {
     scroll-snap-align: start;
   }
 
