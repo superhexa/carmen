@@ -170,7 +170,12 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
   const VOLUME_KEY = 'carmen.volume';
   const [volume, setVolumeState] = useState<number>(() => {
     try {
-      const stored = Number(window.localStorage.getItem(VOLUME_KEY));
+      // getItem returns null on first launch; Number(null) is 0, which
+      // would silently start every new user muted — treat "no stored
+      // value" as full volume explicitly.
+      const raw = window.localStorage.getItem(VOLUME_KEY);
+      if (raw === null) return 1;
+      const stored = Number(raw);
       return Number.isFinite(stored) ? Math.min(Math.max(stored, 0), 1) : 1;
     } catch {
       return 1;
